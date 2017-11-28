@@ -1,0 +1,234 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8664,        226]
+NotebookOptionsPosition[      7297,        195]
+NotebookOutlinePosition[      7635,        210]
+CellTagsIndexPosition[      7592,        207]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"trainSetImages", " ", "=", " ", 
+   RowBox[{"Import", "[", "\"\<train_set_imgs.csv\>\"", "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.720817335037252*^9, 3.7208174052300863`*^9}, {
+  3.7208176644978943`*^9, 3.7208176774220457`*^9}, {3.720817766929895*^9, 
+  3.72081778063739*^9}, {3.720817973852542*^9, 3.72081797745955*^9}, {
+  3.720818068023651*^9, 3.720818073808609*^9}, {3.72081810592031*^9, 
+  3.720818132254877*^9}, {3.72081816918615*^9, 3.7208182259883633`*^9}, {
+  3.7208182726092987`*^9, 3.720818277460534*^9}, {3.720818317461269*^9, 
+  3.72081837005364*^9}, {3.72081840776017*^9, 3.7208185225934553`*^9}, {
+  3.720818659034419*^9, 3.720818735184845*^9}, {3.7208188934498587`*^9, 
+  3.7208190434200993`*^9}, {3.7208280881035423`*^9, 
+  3.72082808874864*^9}},ExpressionUUID->"2750b569-25eb-45ff-90de-\
+b8a4d0228a67"],
+
+Cell[BoxData["\<\"/home/john/Code/Nets/Mathematica_HWD\"\>"], "Output",
+ CellChangeTimes->{{3.720817396743866*^9, 3.7208174081378317`*^9}, 
+   3.7208174383203363`*^9, {3.720817666447864*^9, 3.720817677904869*^9}, {
+   3.720817772578292*^9, 3.720817781196802*^9}, 3.720817978401991*^9, {
+   3.720818069445654*^9, 3.720818074190386*^9}, {3.720818108496681*^9, 
+   3.720818132688733*^9}, {3.720818169612365*^9, 3.720818175061709*^9}, 
+   3.720818228244597*^9, {3.7208182752499657`*^9, 3.72081827780441*^9}, {
+   3.720818352831862*^9, 3.72081837045639*^9}, {3.720818417823028*^9, 
+   3.720818475253903*^9}, {3.72081851414608*^9, 3.7208185231605186`*^9}, 
+   3.720828089746365*^9},ExpressionUUID->"f299d3da-0afa-4924-b612-\
+ed5a070c7cd1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Image2", " ", "=", " ", 
+   RowBox[{"ArrayReshape", "[", 
+    RowBox[{
+     RowBox[{"trainSetImages", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"28", ",", "28"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Image", "[", "Image2", "]"}]}], "Input",
+ CellChangeTimes->{{3.7208177833044567`*^9, 3.720817797338896*^9}, {
+  3.72081783143429*^9, 3.720817919562358*^9}, {3.720817952462778*^9, 
+  3.720817958619604*^9}, {3.7208187431597347`*^9, 3.720818764044631*^9}, {
+  3.720828095928577*^9, 
+  3.7208280960417223`*^9}},ExpressionUUID->"5fdfd2d5-2e64-4cd4-bc0c-\
+070ff3d39dfe"],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1:eJxTTMoPSmNiYGAo5gASQYnljkVFiZXBbCBOamKOmUkqSFIGikfBKBgFo2Co
+gvXL/mxlY+iwh/A2YdDiX+5JMDXch/If2rPtNW9jePDUfql+y5zv/3fac1fl
+8zAeeAIVfw+l30HFYfpoB6IvVCdzMOyD2nMI6t7r9l9bJ3z+Z/8YSj+1/+V0
+ovL//PfE0fJvIOY1IPRBzHkH8V/CC6h9F2jmv5fcis//1p+AhuNb0tyPhYa4
+G+aP6/YQ86/AaYitZ6Dhd5jm8QYBm6Duek20PyDh8QJKP4OnN0i8vaOTu0kF
+0PBteAx19y0c/ntpv0azfi0jwzK4PyDxcRSengfMC0SBNVD3FcDdC/MfJJ1d
+G+TuJx5A0u1DtHT5HOq/hiHvT1g6hPkL5k9Ierw45P0HAxD/HISXHyjlP8MT
+KH0bnq4HxpWUA0h+hJXz73CUq3fttbIdNP//3zFk/QkpZ45By5/nOPz5yF73
+xV5DFobdQ9afELABXp+DuQ3o9f3zIe4/BIDkS/R22nuat8OoDSDp7jg03h5A
+2y/PsLfXHrwc9PUJSnux4RHU/W9wtt8g/n4Pb78NsPNxgB3Q9sodqLuJbJ/K
+v4TWj5cHjb+uTdl/jYFhO9Q/F6DufUV0Oxu13hgs6RDWb3hKdP8Btd92xT7k
+WkPQv/8LB9w/kPRyGt7fhIQ37vwDoyHqYfX4A4x+w+ACDwn44xW0vHsA5UNp
+YP02UC4eBaNgKAAAxMCG8Q==
+    "], {{0, 28}, {28, 0}}, {0., 1.},
+    ColorFunction->GrayLevel],
+   BoxForm`ImageTag["Real", ColorSpace -> Automatic, Interleaving -> None],
+   Selectable->False],
+  DefaultBaseStyle->"ImageGraphics",
+  ImageSize->{263., Automatic},
+  ImageSizeRaw->{28, 28},
+  PlotRange->{{0, 28}, {0, 28}}]], "Output",
+ CellChangeTimes->{
+  3.720817919955658*^9, {3.72081795594189*^9, 3.7208179590040417`*^9}, {
+   3.7208280926708813`*^9, 
+   3.720828097185872*^9}},ExpressionUUID->"4ae69709-cc25-4ea5-a88a-\
+e6e1111ca8e1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Image1", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"#", "\[NotEqual]", "EndOfFile"}], ",", 
+      RowBox[{"Print", "[", "#", "]"}]}], "]"}], "&"}], "@", 
+   RowBox[{"ReadList", "[", 
+    RowBox[{"\"\<train_set_imgs.csv\>\"", ",", "String", ",", "1"}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.720871289590097*^9, 3.720871331780244*^9}, 
+   3.720871386077281*^9},ExpressionUUID->"108abecd-f313-4d17-955b-\
+c73b960c8e26"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReadList","noopen",
+   "\"Cannot open \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"train_set_imgs.csv\\\\\\\"\\\"}]\\).\"",2,4,4,
+   20583823756977334941,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.720871378647644*^9, 
+  3.720871386707905*^9}},ExpressionUUID->"f3b2159e-e35b-47c4-90f0-\
+4cac26cd21b4"],
+
+Cell[BoxData[
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"$Failed", "\[NotEqual]", "EndOfFile"}], ",", 
+   RowBox[{"Print", "[", "$Failed", "]"}]}], "]"}]], "Output",
+ CellChangeTimes->{{3.7208713786494017`*^9, 
+  3.720871386738495*^9}},ExpressionUUID->"ed2acaf9-a1d3-422c-91ec-\
+f899c7bed0ec"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Image1", " ", "=", " ", 
+   RowBox[{"ArrayReshape", "[", 
+    RowBox[{"Image", ",", 
+     RowBox[{"{", 
+      RowBox[{"28", ",", "28"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Image", "[", "Image1", "]"}]}], "Input",
+ CellChangeTimes->{{3.720871342251686*^9, 
+  3.7208713572164593`*^9}},ExpressionUUID->"a83e8d46-5b0d-4d51-b4db-\
+ff5e34fdc60d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ArrayReshape","listrp",
+   "\"List or SparseArray or StructuredArray expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"ArrayReshape\\\", \
+\\\"[\\\", RowBox[{\\\"Image\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"28\\\", \\\",\\\", \\\"28\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}]\\).\"",2,1,1,20583823756977334941,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.720871362833496*^9},ExpressionUUID->"41cd92f5-e719-4f5f-8328-\
+a6444fcb69bd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Image","imgarray",
+   "\"The specified argument \\!\\(\\*RowBox[{\\\"ArrayReshape\\\", \
+\\\"[\\\", RowBox[{\\\"Image\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"28\\\", \\\",\\\", \\\"28\\\"}], \\\"}\\\"}]}], \\\"]\\\"}]\\) \
+should be an array of rank 2 or 3 with machine-sized numbers.\"",2,2,2,
+   20583823756977334941,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.720871362834779*^9},ExpressionUUID->"214329c7-c158-4719-81f8-\
+243ea7d89666"],
+
+Cell[BoxData[
+ RowBox[{"Image", "[", 
+  RowBox[{"ArrayReshape", "[", 
+   RowBox[{"Image", ",", 
+    RowBox[{"{", 
+     RowBox[{"28", ",", "28"}], "}"}]}], "]"}], "]"}]], "Output",
+ CellChangeTimes->{
+  3.720871362843288*^9},ExpressionUUID->"40421034-566d-446d-9a6c-\
+2aa5acdb3643"]
+}, Open  ]]
+},
+WindowSize->{931, 1027},
+WindowMargins->{{Automatic, 1}, {1, Automatic}},
+FrontEndVersion->"11.2 for Linux x86 (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 972, 17, 55, "Input",ExpressionUUID->"2750b569-25eb-45ff-90de-b8a4d0228a67"],
+Cell[1555, 41, 733, 10, 35, "Output",ExpressionUUID->"f299d3da-0afa-4924-b612-ed5a070c7cd1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2325, 56, 666, 16, 55, "Input",ExpressionUUID->"5fdfd2d5-2e64-4cd4-bc0c-070ff3d39dfe"],
+Cell[2994, 74, 1335, 28, 280, "Output",ExpressionUUID->"4ae69709-cc25-4ea5-a88a-e6e1111ca8e1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4366, 107, 499, 13, 31, "Input",ExpressionUUID->"108abecd-f313-4d17-955b-c73b960c8e26"],
+Cell[4868, 122, 348, 9, 22, "Message",ExpressionUUID->"f3b2159e-e35b-47c4-90f0-4cac26cd21b4"],
+Cell[5219, 133, 294, 7, 68, "Output",ExpressionUUID->"ed2acaf9-a1d3-422c-91ec-f899c7bed0ec"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5550, 145, 403, 11, 55, "Input",ExpressionUUID->"a83e8d46-5b0d-4d51-b4db-ff5e34fdc60d"],
+Cell[5956, 158, 526, 11, 22, "Message",ExpressionUUID->"41cd92f5-e719-4f5f-8328-a6444fcb69bd"],
+Cell[6485, 171, 512, 11, 22, "Message",ExpressionUUID->"214329c7-c158-4719-81f8-243ea7d89666"],
+Cell[7000, 184, 281, 8, 35, "Output",ExpressionUUID->"40421034-566d-446d-9a6c-2aa5acdb3643"]
+}, Open  ]]
+}
+]
+*)
+
