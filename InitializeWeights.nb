@@ -1,0 +1,158 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5407,        150]
+NotebookOptionsPosition[      4925,        135]
+NotebookOutlinePosition[      5264,        150]
+CellTagsIndexPosition[      5221,        147]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"16", " ", "lists", " ", "of", " ", 
+    RowBox[{"784", " ", "--"}], " ", "first", " ", "layer", " ", "of", " ", 
+    "neural", " ", "network"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "find", " ", "way", " ", "to", " ", "bias", " ", "weights", " ", "toward", 
+    " ", 
+    RowBox[{"0", "?"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"weights1init", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"RandomReal", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", "784"}], "]"}], ",", 
+       "16"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"bias1init", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}], "]"}], ",", "16"}], "]"}]}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7208746855206137`*^9, 3.7208746990532737`*^9}, {
+   3.7208747441207514`*^9, 3.720874859460933*^9}, {3.7208749335781736`*^9, 
+   3.7208749368128915`*^9}, 3.7208750231969724`*^9, {3.7208751712750425`*^9, 
+   3.72087521071669*^9}, {3.7208755936007013`*^9, 3.7208756133371534`*^9}, {
+   3.7208756642800083`*^9, 3.720875666076803*^9}, {3.720875751179772*^9, 
+   3.7208757653997602`*^9}, {3.720875849127575*^9, 3.7208759470909796`*^9}, {
+   3.7208761363140197`*^9, 3.7208761470182714`*^9}, {3.720876865801071*^9, 
+   3.720876938371202*^9}},ExpressionUUID->"7bc48384-c9fa-4440-a95d-\
+484ce0a0f2df"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"10", " ", "lists", " ", "of", " ", 
+    RowBox[{"16", " ", "--"}], " ", "second", " ", "layer", " ", "of", " ", 
+    "neural", " ", "network"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "find", " ", "way", " ", "to", " ", "bias", " ", "weights", " ", "toward", 
+    " ", 
+    RowBox[{"0", "?"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"weights2init", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"RandomReal", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1"}], ",", "1"}], "}"}], "]"}], ",", "16"}], "]"}], 
+       ",", "10"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"bias2init", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"RandomReal", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}], "]"}], ",", "10"}], "]"}]}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7208748652895036`*^9, 3.720874898933776*^9}, {
+  3.7208749821145325`*^9, 3.7208750136800776`*^9}, {3.7208752041221128`*^9, 
+  3.7208752266712275`*^9}, {3.720876899507742*^9, 
+  3.720876945684304*^9}},ExpressionUUID->"7017f727-8929-4823-97d8-\
+395251511cff"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"error", "[", 
+   RowBox[{"compguess_", ",", "correct_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"guess", ",", "answer", ",", "finalerror"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"guess", "=", "compguess"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"answer", "=", "correct"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"finalerror", "=", "0"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"i", "=", "1"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{"i", "\[LessEqual]", " ", 
+        RowBox[{"Length", "[", "compguess", "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"finalerror", "=", 
+         RowBox[{"finalerror", " ", "+", " ", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"compguess", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "-", 
+             RowBox[{"answer", "[", 
+              RowBox[{"[", "i", "]"}], "]"}]}], ")"}], "^", "2"}]}]}], ";", 
+        " ", 
+        RowBox[{"i", "++"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+     "finalerror"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.720876400248023*^9, 3.7208764219534016`*^9}, {
+   3.7208764532223463`*^9, 3.7208767028110886`*^9}, 3.72087679085542*^9, 
+   3.720876835672906*^9},ExpressionUUID->"b104d440-fea4-4a29-a6db-\
+1a3e53033f2c"]
+},
+WindowSize->{759, 833},
+WindowMargins->{{152, Automatic}, {1, Automatic}},
+FrontEndVersion->"11.2 for Linux x86 (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1610, 39, 101, "Input",ExpressionUUID->"7bc48384-c9fa-4440-a95d-484ce0a0f2df"],
+Cell[2171, 61, 1317, 36, 101, "Input",ExpressionUUID->"7017f727-8929-4823-97d8-395251511cff"],
+Cell[3491, 99, 1430, 34, 216, "Input",ExpressionUUID->"b104d440-fea4-4a29-a6db-1a3e53033f2c"]
+}
+]
+*)
+

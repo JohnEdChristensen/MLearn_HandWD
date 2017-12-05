@@ -17,9 +17,9 @@ def image_txt_convert(data,path):
         output += "\n"
     outFile.write(output)
     outFile.close()
-image_txt_convert(train_set_imgs,"Data/train_set_imgs.txt")
-image_txt_convert(valid_set_imgs,"Data/valid_set_imgs.txt")
-image_txt_convert(test_set_imgs,"Data/test_set_imgs.txt")
+#image_txt_convert(train_set_imgs,"Data/train_set_imgs.txt")
+#image_txt_convert(valid_set_imgs,"Data/valid_set_imgs.txt")
+#image_txt_convert(test_set_imgs,"Data/test_set_imgs.txt")
 def label_txt_convert(data,path):
     output = ""
     outFile = open(path,"w") 
@@ -27,7 +27,6 @@ def label_txt_convert(data,path):
         output += str(data[i])
         if (i < (len(data) -1)):
             output += ","
-        output += "\n"
     outFile.write(output)
     outFile.close()
 label_txt_convert(train_set_labels,"Data/train_set_labels.txt")
